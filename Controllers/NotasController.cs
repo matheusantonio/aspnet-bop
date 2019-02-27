@@ -7,7 +7,7 @@ namespace ApiBop.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NotasController : ControllerBase
+    public class NotasController : Controller
     {
         private readonly NotaService _notaService;
 
@@ -15,22 +15,10 @@ namespace ApiBop.Controllers
             _notaService = notaService;
         }
 
-        [HttpGet]
-        public ActionResult<List<Nota>> Get(){
-            return _notaService.Get();
+        public IActionResult Index()
+        {
+            return View(_notaService.Get());
         }
 
-        [HttpGet("{id:length(24)}", Name = "GetNota")]
-        public ActionResult<Nota> Get(string id){
-            var nota = _notaService.Get(id);
-
-            if(nota == null){
-                return NotFound();
-            }
-
-            return nota;
-        }
-
-        
     }
 }
