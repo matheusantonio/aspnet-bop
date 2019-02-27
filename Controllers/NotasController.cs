@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiBop.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class NotasController : Controller
     {
         private readonly NotaService _notaService;
@@ -17,7 +15,8 @@ namespace ApiBop.Controllers
 
         public IActionResult Index()
         {
-            return View(_notaService.Get());
+            List<Nota> listaNotas = _notaService.Get();
+            return View(listaNotas);
         }
 
     }
