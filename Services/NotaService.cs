@@ -21,7 +21,7 @@ namespace ApiBop.Services
         }
 
         public Nota Get(string id){
-            return _notas.Find<Nota>(nota => nota.id == id).FirstOrDefault();
+            return _notas.Find<Nota>(nota => nota._id == id).FirstOrDefault();
         }
 
 

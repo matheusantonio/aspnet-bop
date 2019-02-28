@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ApiBop.Services;
+using ApiBop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiBop
 {
@@ -33,6 +35,8 @@ namespace ApiBop
             });
 
             services.AddScoped<NotaService>();
+            services.AddDbContext<PostgresNotasContext>( options => 
+                options.UseNpgsql(Configuration.GetConnectionString("postgre_notas")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

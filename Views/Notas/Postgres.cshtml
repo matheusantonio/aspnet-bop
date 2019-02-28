@@ -1,0 +1,35 @@
+@model IEnumerable<ApiBop.Models.Nota>
+
+@{
+    ViewData["Title"] = "API Bop - Postgres";
+}
+
+Bem-vindo ao sistema de BOP com Postgres!
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Descricao</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+                <td>
+                    <a>
+                        @item.id_note
+                    </a>
+                </td>
+                <td>
+                    <a>
+                        @item.Titulo
+                    </a>
+                </td>
+                <td>
+                    <a>
+                        @item.Descricao
+                    </a>
+                </td>
+            </tr>
+    }
+</table>
