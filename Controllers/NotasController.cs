@@ -16,13 +16,17 @@ namespace ApiBop.Controllers
             _postgresContext = postgresContext;
         }
 
-        public IActionResult Index()
+        public ViewResult Index()
         {
-            List<Nota> listaNotas = _notaService.Get();
-            return View(listaNotas);
+            return View();
         }
 
-        public IActionResult Postgres()
+        public ViewResult Mongo()
+        {
+            return View(_notaService.Get());
+        }
+
+        public ViewResult Postgres()
         {
             return View(_postgresContext.tb_notas);
         }

@@ -1,35 +1,8 @@
-@model IEnumerable<ApiBop.Models.Nota>
-
 @{
     ViewData["Title"] = "API Bop";
 }
 
-Bem-vindo ao sistema de BOP!
+<h2>Bem ao sistema de BOP!</h2>
 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Titulo</th>
-        <th>Descricao</th>
-    </tr>
-    @foreach(var item in Model)
-    {
-        <tr>
-                <td>
-                    <a>
-                        @item.id_note
-                    </a>
-                </td>
-                <td>
-                    <a>
-                        @item.Titulo
-                    </a>
-                </td>
-                <td>
-                    <a>
-                        @item.Descricao
-                    </a>
-                </td>
-            </tr>
-    }
-</table>
+<p>Veja a versão com @Html.ActionLink("Postgres", "Postgres", "Notas") </p>
+<p>Veja a versão com @Html.ActionLink("Mongo", "Mongo", "Notas") </p>
